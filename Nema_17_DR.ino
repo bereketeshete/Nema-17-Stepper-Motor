@@ -1,7 +1,6 @@
 // written by Bereket Kebede
 // Dextrous robotics
 
-
 const int DIR = 6;
 const int STEP = 7;
 const int  steps_per_rev = 200;
@@ -23,12 +22,14 @@ void setup()
   pinMode(STEP, OUTPUT);
   pinMode(DIR, OUTPUT);
 }
+
 void loop()
 {
   // 400 works
   digitalWrite(DIR, HIGH);
   //Serial.println("Spinning Clockwise...");
   
+  StartTime = millis();
   for(int i = 0; i<steps_per_rev; i++)
   {
     digitalWrite(STEP, HIGH);
@@ -52,8 +53,6 @@ void loop()
   speed = radius * ang_speed;
 
   // Serial.println(ElapsedTime/1000.00);
-  
-
   Serial.print("ang speed: ");
   Serial.print(ang_speed);
   Serial.print(" rev/s");
